@@ -14,11 +14,11 @@ library tilelib initializer createGrid requires cord {
     endglobals
     
     real getTileCenterXByIndex(integer ix, integer iy) {
-        return ((gridMaxX/2) * -128.0) + (ix * 128.0) + 64.0
+        return ((gridMaxX/2) * -128.0) + (ix * 128.0)
     }
     
     real getTileCenterYByIndex(integer ix, integer iy) {
-        return ((gridMaxY/2) * -128.0) + (iy * 128.0) + 64.0
+        return ((gridMaxY/2) * -128.0) + (iy * 128.0)
     }
     
     struct tile extends cord {
@@ -66,6 +66,7 @@ library tilelib initializer createGrid requires cord {
         }
         if i == gridMaxX {
             BJDebugMsg("pathing grid succesfully initialized")
+            FlushParentHashtable(timerHash)
         }
         DestroyTimer(t)
         t = null
@@ -89,5 +90,6 @@ library tilelib initializer createGrid requires cord {
         }
         FogEnable(true)
         FogMaskEnable(true)
+        t = null
     }
 }
