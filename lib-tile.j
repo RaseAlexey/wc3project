@@ -6,7 +6,7 @@ library tilelib initializer createGrid requires cord {
         constant integer walltile = 'Oaby'
         constant integer pathBlocker = 'YTfc'
         constant integer walkBlocker = 'YTpc'
-        constant integer visionBlocker = 'Ytlc'
+        constant integer visionBlocker = 'YTlb'
 	//*
         constant integer gridMaxX = 64 //Максимальный размер карты по X 
         constant integer gridMaxY = 64 //Максимальный размер карты по Y
