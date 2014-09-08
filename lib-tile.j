@@ -22,11 +22,11 @@ library tilelib initializer createGrid requires cord {
     }
     
     struct tile extends cord {
-        integer tilecode //tilecode - код тайла формата 'xxxx'
-        integer pathing //pathing - проходимость тайла. 0 - проходим. 1 - можно летать. 2 - непроходим (стена)
-        integer vision //vision - прозрачность тайла. 0 - прозрачен. 1 - нет.
-        destructable pBlocker //Блокиратор пути, если необходим
-        destructable vBlocker //Блокиратор зрения, если необходим
+        integer tilecode
+        integer pathing
+        integer vision
+        destructable pBlocker
+        destructable vBlocker
             
         }
     
