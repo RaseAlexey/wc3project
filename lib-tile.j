@@ -1,15 +1,11 @@
 library tilelib initializer createGrid requires cord {
-    //Tile Library
-    //Работа с тайлом как с объектом, создание тайловой сетки видимости и проходимости.
     globals
-	//Стандартные значения, менять только для вручную созданных блокираторов *
         constant integer walltile = 'Oaby'
         constant integer pathBlocker = 'YTfc'
         constant integer walkBlocker = 'YTpc'
         constant integer visionBlocker = 'YTlb'
-	//*
-        constant integer gridMaxX = 64 //Максимальный размер карты по X 
-        constant integer gridMaxY = 64 //Максимальный размер карты по Y
+        constant integer gridMaxX = 64 
+        constant integer gridMaxY = 64
         hashtable pathingGrid
         hashtable pathingBlockGrid
         hashtable visionGrid
@@ -32,7 +28,7 @@ library tilelib initializer createGrid requires cord {
         destructable pBlocker //Блокиратор пути, если необходим
         destructable vBlocker //Блокиратор зрения, если необходим
             
-    }
+        }
     
     tile initTile(integer ix, integer iy) {
             tile t = tile.create()
@@ -68,11 +64,9 @@ library tilelib initializer createGrid requires cord {
             j++
                 
         }
-        //FOR DEBUG ONLY *
         if i == gridMaxX {
             BJDebugMsg("pathing grid succesfully initialized")
         }
-	//*
         DestroyTimer(t)
         t = null
     }
@@ -93,11 +87,7 @@ library tilelib initializer createGrid requires cord {
             TimerStart(t, (i+1) * 0.01, false, function loopNewThread1)
             i++
         }
-	FlushParentHashtable(timerHash)
-	//OPTIONAL *
         FogEnable(true)
         FogMaskEnable(true)
-	//*
     }
-    
 }
